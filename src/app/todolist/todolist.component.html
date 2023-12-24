@@ -1,0 +1,56 @@
+<div class="card">
+    <h5 class="card-header">Lista de tareas</h5>
+    <div class="card-body">
+        <div *ngFor="let tarea of tareaServicio.tareas; let i = index" class="border rounded p-3 d-flex mt-2">
+            <div class="mr-3">
+                <p>{{ tarea.titulo }}</p>
+            </div>
+
+            <div class="btn-group" role="group" style="background-color: #e0e0e0; padding: 10px; border-radius: 5px;">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" [name]="'estadoTarea_' + i" [id]="'porHacer_' + i"
+                        value="por hacer" [checked]="tarea.estado === 'por hacer'">
+                    <label class="form-check-label" [for]="'porHacer_' + i">
+                        Por hacer
+                    </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" [name]="'estadoTarea_' + i" [id]="'enProgreso_' + i"
+                        value="en progreso" [checked]="tarea.estado === 'en progreso'">
+                    <label class="form-check-label" [for]="'enProgreso_' + i">
+                        En progreso
+                    </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" [name]="'estadoTarea_' + i" [id]="'finalizado_' + i"
+                        value="finalizado" [checked]="tarea.estado === 'finalizado'">
+                    <label class="form-check-label" [for]="'finalizado_' + i">
+                        Finalizado
+                    </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" [name]="'estadoTarea_' + i" [id]="'retrazado_' + i"
+                        value="retrasado" [checked]="tarea.estado === 'retrazado'">
+                    <label class="form-check-label" [for]="'retrazado_' + i">
+                        Retrasado
+                    </label>
+                </div>
+            </div>
+
+            <div class="ml-3">
+                <p>{{ tarea.fecha | date }}</p>
+            </div>
+
+            <div class="ml-3">
+                <button type="button" class="btn btn-danger" (click)="eliminarTarea(tarea.id)">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+</div>

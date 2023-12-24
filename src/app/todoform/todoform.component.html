@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h2>Formulario de Registro de Tarea</h2>
+    <form (ngSubmit)="registrar()">
+        <div class="form-group">
+            <label for="titulo">Título de la Tarea:</label>
+            <input type="text" class="form-control" name="titulo" [(ngModel)]="nuevaTarea.titulo">
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado de la Tarea:</label>
+            <select class="form-control" name="estado" required [(ngModel)]="nuevaTarea.estado">
+                <option value="por hacer">POR HACER</option>
+                <option value="en progreso">EN PROGRESO</option>
+                <option value="finalizado">FINALIZADO</option>
+                <option value="retrazado">RETRAZADO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" class="form-control" [(ngModel)]="nuevaTarea.fecha" name="fecha">
+        </div>
+        <button class="btn btn-primary">Registrar Tarea</button>
+    </form>
+</div>
